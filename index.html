@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <style>
+        .notice {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="notice" id="msg">最简单的公告</p>
+    <div style="width: 300px;"><p class="notice" id="msg2">限制公告宽度</p></div>
+    <div style="width: 300px;"><p class="notice" id="msg3">interval为10(10毫秒滚动一步)</p></div>
+    <div style="width: 300px;"><p class="notice" id="msg4">rest_time为500(停留时间500毫秒)</p></div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./lib/roll_notice.js"></script>
+    <script>
+        $(document).ready(function () {
+            roll_notice({id: 'msg'})
+            roll_notice({id: 'msg2'})
+            roll_notice({id: 'msg3',interval: 10})
+            roll_notice({id: 'msg4',rest_time: 500})
+        })
+    </script>
+</body>
+
+</html>
