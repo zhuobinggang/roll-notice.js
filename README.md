@@ -1,5 +1,11 @@
 ## 横屏滚动插件
 
+![01](https://zhuobinggang.github.io/roll_notice_js/assets/01.png)
+
+![02](https://zhuobinggang.github.io/roll_notice_js/assets/02.png)
+
+![03](https://zhuobinggang.github.io/roll_notice_js/assets/03.png)
+
 用来显示横屏滚动公告,可以配置滚动速度,休止间隔,滚动跨度等等,默认宽度为`width: 100%`.可以在外层增加一个你想要的宽度的`div`.
 
 使用方式如下: 
