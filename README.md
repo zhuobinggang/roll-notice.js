@@ -17,4 +17,6 @@
 ```
 
 #### DEMO
-[DEMO]()
+[DEMO(ch)](https://zhuobinggang.github.io/roll_notice_js/index.html?lang=ch)
+
+[DEMO(en)](https://zhuobinggang.github.io/roll_notice_js/index.html?lang=en)
