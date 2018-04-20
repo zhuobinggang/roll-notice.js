@@ -3,28 +3,85 @@
 
 <head>
     <meta charset="utf-8">
-    <title>菜鸟教程(runoob.com)</title>
+    <title>DEMO</title>
     <style>
-        .notice {
+        .container {
             background-color: bisque;
+            margin: 10px 0;
+            width: 400px;
         }
     </style>
 </head>
 
 <body>
-    <p class="notice" id="msg">最简单的公告</p>
-    <div style="width: 300px;"><p class="notice" id="msg2">限制公告宽度</p></div>
-    <div style="width: 300px;"><p class="notice" id="msg3">interval为10(10毫秒滚动一步)</p></div>
-    <div style="width: 300px;"><p class="notice" id="msg4">rest_time为500(停留时间500毫秒)</p></div>
+    <p class="notice" id="msg1"></p>
+    <div class="container">
+        <p class="notice" id="msg2"></p>
+    </div>
+    <div class="container">
+        <p class="notice" id="msg3"></p>
+    </div>
+    <div class="container">
+        <p class="notice" id="msg4"></p>
+    </div>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="./lib/roll_notice.js"></script>
     <script>
+
+
+        const get_lang = (function () {
+            let lang = "ch"
+
+            const searchParams = new URLSearchParams(window.location.search)
+            if (searchParams.has('lang')) {
+                lang = searchParams.get('lang')
+            }
+
+            return () => {
+                return lang
+            }
+        }())
+
+        const get_lang_msgs = (function () {
+            const language_map = {
+                ch: ['父元素为body', '限制父元素宽度', '动画间隔10毫秒(interval)', '在初始位置的停留时间为500(rest_time)'],
+                en: ['parent is body', 'parent div width is 300px', 'animate interval is 10ms', 'rest time is 500ms']
+            }
+
+            let result = language_map.ch
+
+            switch (get_lang()) {
+                case 'ch':
+                    break
+                case 'en':
+                    result = language_map.en
+                    break
+                default:
+                    break
+            }
+
+            return () => {
+                return result
+            }
+        }())
+
+        const render_lang = () => {
+            const lang_msgs = get_lang_msgs()
+
+            for (let i = 1; i <= 4; i++) {
+                $('#msg' + i).text(lang_msgs[i - 1])
+            }
+        }
+
         $(document).ready(function () {
-            roll_notice({id: 'msg'})
-            roll_notice({id: 'msg2'})
-            roll_notice({id: 'msg3',interval: 10})
-            roll_notice({id: 'msg4',rest_time: 500})
+
+            render_lang()
+
+            roll_notice({ id: 'msg1' })
+            roll_notice({ id: 'msg2' })
+            roll_notice({ id: 'msg3', interval: 10 })
+            roll_notice({ id: 'msg4', rest_time: 500 })
         })
     </script>
 </body>
