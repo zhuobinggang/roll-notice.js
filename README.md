@@ -26,3 +26,15 @@
 [DEMO(ch)](https://zhuobinggang.github.io/roll_notice_js/index.html?lang=ch)
 
 [DEMO(en)](https://zhuobinggang.github.io/roll_notice_js/index.html?lang=en)
+
+
+### Options
+配置项
+```js
+roll_notice({ 
+    id = 'notice', //Element id
+    interval = 50, //Animation interval
+    step = 2, //Every frame move pixels
+    rest_time = 3000 , //Rest time
+})
+```
