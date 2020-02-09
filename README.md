@@ -1,4 +1,4 @@
-## 横屏滚动插件
+## A simple lib to roll your notice
 
 ![01](assets/01.png)
 
@@ -6,18 +6,17 @@
 
 ![03](assets/03.png)
 
-用来显示横屏滚动公告,可以配置滚动速度,休止间隔,滚动跨度等等,默认宽度为`width: 100%`.可以在外层增加一个你想要的宽度的`div`.
-
-使用方式如下: 
+### Usage 
 
 ```html
 <div id="notice">这是一个公告</div>
 
-<!-- 依赖jquery -->
+<!-- Require jquery -->
 <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<!-- 引入本库 -->
-<script src="./assets/js/roll_notice.js"></script>
+<!-- Require the lib -->
+<script src="./lib/roll_notice.js"></script>
 <script>
+    //Just use the global function
     roll_notice({ id: 'notice' })
 </script>
 ```
@@ -29,12 +28,11 @@
 
 
 ### Options
-配置项
 ```js
 roll_notice({ 
-    id = 'notice', //Element id
-    interval = 50, //Animation interval
-    step = 2, //Every frame move pixels
-    rest_time = 3000 , //Rest time
+    id = 'notice', //Id of the div you want it to roll
+    interval = 50, //50 ms per step/frame
+    step = 2, //Pixels to move Every steps/frames
+    rest_time = 3000, //How many ms to rest when touched the border
 })
 ```
